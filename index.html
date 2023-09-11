@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>主页面</title>
+  <style>
+    body {
+      background-image: url(photo/h.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .text-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .text {
+      font-size: 60px;
+      font-family: 楷体;
+      font-weight: 10px;
+      position: absolute;
+      top: 20%;
+      left: 32%;
+      z-index: 9999;
+    }
+
+    .floating-button {
+     position: fixed;
+       bottom: 150px; /* 距离底部的距离 */
+       right: 50%; /* 距离右侧的距离 */
+       width: 100px;
+       height: 100px;
+       border-radius: 50%;
+       box-shadow: 4px 4px 7px #040404, -4px -4px 7px #ffffff;
+       background-color: green;
+       color: white;
+       font-size: 16px;
+       line-height: 100px;
+       text-align: center;
+       cursor: pointer;
+       z-index: 9999; 
+       
+       background-image: linear-gradient(45deg, rgba(197, 91, 56, 0.0) 0%, rgba(141, 197, 37, 1.0) 50%, rgba(197, 91, 56, 0) 100%);
+       background-size: 200% 200%;
+       animation: flowAnimation 3s infinite;
+     }
+    @keyframes flowAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+	.container {
+	    width: 200px;
+	    height: 200px;
+	    background-color: #bdbdbd;
+	    background-image: url("photo/ht.jpg");
+	    background-size: cover;
+	    background-position: center center;
+	    position: absolute;
+	    bottom: 5%;
+	    right: 5%;
+	    transition: width 0.5s, height 0.5s, background-size 0.5s; /* 添加过渡效果 */
+		border-radius: 20px;
+		z-index: 9999;
+	}
+	
+	.container:hover {
+	    width:1000px ;  /* 鼠标移动到容器上时增加宽度 */
+	    height: 600px; /* 鼠标移动到容器上时增加高度 */
+	}
+	.container .text {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    text-align: center;
+	    color: white;
+		font-family: 楷体;
+	    font-size: 60px;
+	    font-weight: bold;
+	    transition: font-size 0.5s; /* 添加过渡效果 */
+	}
+	
+	.container:hover .text {
+	    font-size: 40px; /* 鼠标移动到容器上时增大字体大小 */
+	}
+	.second {
+	            width: 200px;
+	            height: 200px;
+	            background-color: #bdbdbd;
+	            background-image: url("photo/sh.jpg");
+	            background-size: cover;
+	            background-position: center center;
+	            position: absolute;
+	            top: 5%;
+	            right: 5%;
+	            transition: width 0.5s, height 0.5s, background-size 0.5s; /* 添加过渡效果 */
+				border-radius: 20px;
+				z-index: 9999;
+	        }
+	        
+	        .second:hover {
+	            width: 1000px; /* 鼠标移动到容器上时增加宽度 */
+	            height: 600px; /* 鼠标移动到容器上时增加高度 */
+	        }
+	        
+	        .second .text {
+	            position: absolute;
+	            top: 50%;
+	            left: 50%;
+	            transform: translate(-50%, -50%);
+	            text-align: center;
+	            color: white;
+	            font-family: 楷体;
+	            font-size: 60px;
+	            font-weight: bold;
+	            transition: font-size 0.5s; /* 添加过渡效果 */
+	        }
+	        
+	        .second:hover .text {
+	            font-size: 40px; /* 鼠标移动到容器上时增大字体大小 */
+	        }
+  </style>
+</head>
+<body>
+  <div class="text-container">
+    <div class="text">
+      欢迎来到杭州西湖
+    </div>
+    <div class="floating-button" onclick="redirectToPage()">点击进入</div>
+  </div>
+	<div class="container">
+	    <div class="text">二</div>
+	</div>
+	<div class="second">
+		<div class="text">一</div>
+	</div>
+  <script>
+    function redirectToPage() {
+      var destinationURL = "https://lwenxue.github.io/west_zhiyin/zhiyin.html";
+      
+      // 使用 window.location.href 进行页面重定向
+      window.location.href = destinationURL;
+    }
+	const container = document.querySelector('.container');
+	
+	container.addEventListener('mouseover', function() {
+	    const text = this.querySelector('.text');
+	    text.textContent = '进入景点介绍页面，了解西湖十景的发展和景区特色'; // 修改文本内容
+	});
+	
+	container.addEventListener('mouseout', function() {
+	    const text = this.querySelector('.text');
+	    text.textContent = '二'; // 恢复原始文本内容
+	});
+	//第二个容器设计
+	const second = document.querySelector('.second');
+	
+	second.addEventListener('mouseover', function() {
+	    const text = this.querySelector('.text');
+	    text.textContent = '进入地图导航页面，根据地图小人指引按次游历西湖十景，即减短了找路的时间，又可以有更多时间去欣赏风景'; // 修改文本内容
+	});
+	
+	second.addEventListener('mouseout', function() {
+	    const text = this.querySelector('.text');
+	    text.textContent = '一'; // 恢复原始文本内容
+	});
+  </script>
+</body>
+</html>
